@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>송승훈 | T.M 대표</title>
+<meta property="og:title" content="송승훈 | T.M 대표"/>
+<meta property="og:description" content="One Size Never Fits All — 당신만의 디지털 브랜딩을 실현합니다."/>
+<meta property="og:image" content="./images/profile.jpg"/>
+<meta property="og:type" content="website"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700;900&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --p: #1a2744;
+  --p2: #c9a84c;
+  --p-light: #e8dfc4;
+  --p-dark: #0d1628;
+  --bg: #f7f5f0;
+  --bg2: #eeeade;
+  --card: #ffffff;
+  --text: #1a1a1a;
+  --text2: #5a5a5a;
+  --border: rgba(26,39,68,0.12);
+  --tag-bg: rgba(201,168,76,0.15);
+  --tag-text: #8a6820;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  transition: background 0.4s, color 0.4s;
+}
+
+/* ── 테마 바 ── */
+.theme-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 20px;
+  display: flex; align-items: center; gap: 10px;
+  max-width: 480px; margin: 0 auto;
+  left: 50%; transform: translateX(-50%);
+  width: 100%;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.theme-label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--text2); white-space: nowrap;
+}
+.swatches { display: flex; gap: 8px; }
+.swatch {
+  width: 26px; height: 26px; border-radius: 50%;
+  cursor: pointer; border: 3px solid transparent;
+  transition: transform 0.2s, border-color 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+}
+.swatch:hover { transform: scale(1.2); }
+.swatch.active { border-color: var(--text); transform: scale(1.1); }
+.theme-name {
+  margin-left: auto; font-size: 11px; font-weight: 700;
+  color: var(--p2); letter-spacing: 0.05em;
+}
+
+/* ── 메인 ── */
+.main {
+  max-width: 480px; margin: 0 auto;
+  padding: 70px 0 100px;
+}
+
+/* ── 히어로 ── */
+.hero {
+  position: relative; overflow: hidden;
+  height: 320px;
+}
+.hero-img {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: brightness(0.55);
+  transition: filter 0.4s;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, var(--p-dark) 100%);
+}
+.hero-content {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 24px 24px 20px;
+}
+.hero-slogan {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 13px; font-weight: 400;
+  color: var(--p2); letter-spacing: 0.12em;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.hero-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 32px; font-weight: 900;
+  color: #fff; line-height: 1.1;
+}
+.hero-title {
+  font-size: 13px; font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  margin-top: 4px; letter-spacing: 0.05em;
+}
+.hero-bar {
+  width: 40px; height: 3px;
+  background: var(--p2);
+  border-radius: 99px; margin-top: 12px;
+}
+
+/* ── 프로필 카드 ── */
+.profile-card {
+  margin: -1px 20px 0;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 24px 20px 20px;
+  border: 1px solid var(--border);
+  display: flex; gap: 16px; align-items: flex-start;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  position: relative; z-index: 2;
+  transition: background 0.4s, border-color 0.4s;
+}
+.avatar {
+  width: 80px; height: 80px; border-radius: 50%;
+  object-fit: cover; border: 3px solid var(--p2);
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+.profile-info { flex: 1; }
+.profile-name {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 20px; font-weight: 900; color: var(--text);
+}
+.profile-pos {
+  font-size: 12px; font-weight: 700;
+  color: var(--p2); letter-spacing: 0.08em;
+  text-transform: uppercase; margin-top: 2px;
+}
+.profile-company {
+  font-size: 13px; color: var(--text2); margin-top: 4px;
+}
+.profile-quote {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 12px; color: var(--text2);
+  font-style: italic; margin-top: 10px;
+  line-height: 1.6; border-left: 2px solid var(--p2);
+  padding-left: 10px;
+}
+
+/* ── 섹션 공통 ── */
+.section { padding: 28px 20px 0; }
+.section-head {
+  display: flex; align-items: center; gap: 8px;
+  margin-bottom: 14px;
+}
+.section-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--p2);
+}
+.section-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 16px; font-weight: 700; color: var(--text);
+}
+
+/* ── 어바웃 ── */
+.about-text {
+  font-size: 14px; line-height: 1.85;
+  color: var(--text2);
+}
+
+/* ── WHY 카드 ── */
+.why-list { display: flex; flex-direction: column; gap: 10px; }
+.why-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--p);
+  border-radius: 10px; padding: 14px 16px;
+  transition: background 0.4s, border-color 0.4s, transform 0.2s;
+}
+.why-item:hover { transform: translateX(3px); }
+.why-item:nth-child(2) { border-left-color: var(--p2); }
+.why-item:nth-child(3) { border-left-color: var(--p); }
+.why-title {
+  font-size: 13px; font-weight: 700;
+  color: var(--p); margin-bottom: 5px;
+}
+.why-item:nth-child(2) .why-title { color: var(--p2); }
+.why-desc {
+  font-size: 12px; color: var(--text2); line-height: 1.7;
+}
+
+/* ── 차별점 카드 ── */
+.diff-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.diff-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px;
+  transition: background 0.4s, border-color 0.4s;
+}
+.diff-num {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 22px; font-weight: 900;
+  color: var(--p-light); line-height: 1;
+  margin-bottom: 6px;
+  transition: color 0.4s;
+}
+.diff-title {
+  font-size: 12px; font-weight: 700; color: var(--p);
+  margin-bottom: 5px;
+  transition: color 0.4s;
+}
+.diff-desc { font-size: 11px; color: var(--text2); line-height: 1.6; }
+
+/* ── 워크스페이스 슬라이더 ── */
+.slider-wrap {
+  border-radius: 14px; overflow: hidden;
+  border: 1px solid var(--border);
+  position: relative;
+}
+.slides { display: flex; transition: transform 0.45s cubic-bezier(.4,0,.2,1); }
+.slide { min-width: 100%; }
+.slide img {
+  width: 100%; height: 200px; object-fit: cover; display: block;
+}
+.slide-cap {
+  background: var(--card);
+  padding: 10px 14px;
+  font-size: 12px; font-weight: 700;
+  color: var(--p2); letter-spacing: 0.06em;
+  border-top: 1px solid var(--border);
+  transition: background 0.4s;
+}
+.slider-ctrl {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-top: 10px;
+}
+.slider-dots { display: flex; gap: 6px; }
+.dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--border); cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.dot.active { background: var(--p2); transform: scale(1.3); }
+.slider-btns { display: flex; gap: 6px; }
+.s-btn {
+  background: var(--p); color: #fff;
+  border: none; border-radius: 8px;
+  width: 32px; height: 32px;
+  font-size: 16px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, opacity 0.2s;
+}
+.s-btn:disabled { opacity: 0.3; cursor: default; }
+
+/* ── 리퍼럴 블록 ── */
+.referral-block {
+  background: var(--p);
+  border-radius: 16px; padding: 24px 20px;
+  transition: background 0.4s;
+}
+.referral-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 18px; font-weight: 900; color: #fff;
+  margin-bottom: 6px;
+}
+.referral-sub {
+  font-size: 12px; color: rgba(255,255,255,0.7);
+  margin-bottom: 14px; line-height: 1.6;
+}
+.ref-tags { display: flex; flex-direction: column; gap: 8px; }
+.ref-tag {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 8px; padding: 10px 14px;
+  font-size: 12px; font-weight: 500; color: #fff;
+  display: flex; align-items: center; gap: 8px;
+}
+.ref-tag::before {
+  content: '';
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--p2); flex-shrink: 0;
+}
+
+/* ── 이력 ── */
+.history-list { display: flex; flex-direction: column; gap: 0; }
+.history-item {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+.history-item:last-child { border-bottom: none; }
+.history-year {
+  font-size: 11px; font-weight: 700; color: var(--p2);
+  letter-spacing: 0.05em; white-space: nowrap;
+  padding-top: 2px; min-width: 52px;
+}
+.history-content { flex: 1; }
+.history-title {
+  font-size: 13px; font-weight: 700; color: var(--text);
+  margin-bottom: 2px;
+}
+.history-desc { font-size: 12px; color: var(--text2); line-height: 1.6; }
+
+/* ── 링크 ── */
+.link-list { display: flex; flex-direction: column; gap: 10px; }
+.link-item {
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px 16px;
+  text-decoration: none; color: var(--text);
+  transition: background 0.2s, transform 0.2s, border-color 0.4s;
+}
+.link-item:hover { background: var(--bg2); transform: translateY(-1px); }
+.link-left { display: flex; align-items: center; gap: 12px; }
+.link-icon {
+  width: 36px; height: 36px;
+  background: var(--p); color: #fff;
+  border-radius: 9px; display: flex; align-items: center; justify-content: center;
+  font-size: 15px; transition: background 0.4s;
+}
+.link-label { font-size: 13px; font-weight: 700; }
+.link-sub { font-size: 11px; color: var(--text2); margin-top: 1px; }
+.link-arrow { font-size: 18px; color: var(--text2); }
+
+/* ── 푸터 ── */
+.footer {
+  margin: 28px 20px 0;
+  text-align: center;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+}
+.footer-title {
+  font-family: 'Noto Serif KR', serif;
+  font-size: 14px; font-weight: 700; color: var(--p2);
+  letter-spacing: 0.1em;
+}
+.footer-copy {
+  font-size: 11px; color: var(--text2);
+  margin-top: 6px; line-height: 1.6;
+}
+.footer-tm {
+  font-size: 20px; font-weight: 900;
+  color: var(--p); margin-top: 10px;
+  font-family: 'Noto Serif KR', serif;
+  letter-spacing: 0.15em;
+}
+
+/* ── 바텀 네비 ── */
+.bottom-nav {
+  position: fixed; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 480px;
+  background: var(--card);
+  border-top: 1px solid var(--border);
+  display: flex; justify-content: space-around;
+  padding: 10px 0 14px;
+  z-index: 99;
+  transition: background 0.4s;
+}
+.nav-item {
+  display: flex; flex-direction: column; align-items: center;
+  gap: 3px; cursor: pointer; text-decoration: none;
+  color: var(--text2); transition: color 0.2s;
+}
+.nav-item.active { color: var(--p2); }
+.nav-icon { font-size: 20px; }
+.nav-label { font-size: 10px; font-weight: 700; letter-spacing: 0.05em; }
+</style>
+</head>
+<body>
+
+<!-- 테마 선택 바 -->
+<div class="theme-bar">
+  <span class="theme-label">테마</span>
+  <div class="swatches" id="swatches"></div>
+  <span class="theme-name" id="theme-name">차콜 골드</span>
+</div>
+
+<div class="main">
+
+  <!-- 히어로 -->
+  <section class="hero">
+    <img class="hero-img" src="./images/workspace1.jpg" alt="워크스페이스"/>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-slogan">One Size Never Fits All</div>
+      <div class="hero-name">송승훈</div>
+      <div class="hero-title">T.M 대표 · 앱·웹 개발 컨설턴트</div>
+      <div class="hero-bar"></div>
+    </div>
+  </section>
+
+  <!-- 프로필 카드 -->
+  <section style="position:relative; z-index:2; margin-top:-32px;">
+    <div class="profile-card">
+      <img class="avatar" src="./images/profile.jpg" alt="송승훈 프로필"/>
+      <div class="profile-info">
+        <div class="profile-name">송승훈</div>
+        <div class="profile-pos">CEO · T.M</div>
+        <div class="profile-company">앱 개발 · 웰니스 코치 · F&B 컨설턴트</div>
+        <div class="profile-quote">"모든 사람에게 같은 답은 통하지 않는다."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 어바웃 -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-dot"></div>
+      <div class="section-title">About</div>
+    </div>
+    <p class="about-text">흔한 템플릿이 아닌, 당신만의 고유한 정체성과 가치관을 디지털 세계에 구현합니다.<br><br>15년의 메디컬 데이터 분석, 10년의 실전 F&B 경영, 그리고 IT 개발까지 — 세 개의 도메인을 교차하는 유일한 시각으로 클라이언트의 비즈니스를 설계합니다.</p>
+  </section>
+
+  <!-- WHY -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-dot"></div>
+      <div class="section-title">Why T.M</div>
+    </div>
+    <div class="why-list">
+      <div class="why-item">
+        <div class="why-title">아이덴티티 커스텀</div>
+        <div class="why-desc">흔한 템플릿에 끼워 맞추는 공장형 개발이 아닙니다. 클라이언트 고유의 철학과 가치관을 온전히 담아낸 세상에 단 하나뿐인 디지털 브랜딩을 실현합니다.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-title">도메인 크로스오버</div>
+        <div class="why-desc">15년의 메디컬 데이터 분석과 8년의 실전 F&B 경영 노하우. 단순 코딩을 넘어 실제 '돈이 되는 기획'을 먼저 제안합니다.</div>
+      </div>
+      <div class="why-item">
+        <div class="why-title">미니멀 스타트</div>
+        <div class="why-desc">아이디어의 본질만 정확히 추려내어, 가장 합리적인 비용으로 빠르게 시장에 진입할 수 있는 최적의 스케일업 라인을 설계합니다.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 차별점 -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-dot"></div>
+      <div class="section-title">차별점</div>
+    </div>
+    <div class="diff-grid">
+      <div class="diff-item">
+        <div class="diff-num">01</div>
+        <div class="diff-title">비즈니스 디코딩</div>
+        <div class="diff-desc">사업가의 진짜 니즈와 가치관을 정확하게 해석하여 시스템으로 구현</div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">02</div>
+        <div class="diff-title">데이터 기반 UX</div>
+        <div class="diff-desc">실전 데이터를 기반으로 사용자가 직관적으로 반응하는 인터페이스 설계</div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">03</div>
+        <div class="diff-title">오너십 컨설팅</div>
+        <div class="diff-desc">오너의 관점에서 클라이언트 사업을 내 사업처럼 함께 고민하는 파트너</div>
+      </div>
+      <div class="diff-item">
+        <div class="diff-num">04</div>
+        <div class="diff-title">플랫폼 인프라</div>
+        <div class="diff-desc">디지털 명함부터 대형 플랫폼까지 유연하게 확장되는 비즈니스 인프라</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 워크스페이스 슬라이더 -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-dot"></div>
+      <div class="section-title">워크스페이스</div>
+    </div>
+    <div class="slider-wrap">
+      <div class="slides" id="slides">
+        <div class="slide">
+          <img src="./images/workspace1.jpg" alt="워크스페이스 1"/>
+          <div class="slide-cap">STRATEGY STUDIO</div>
+        </div>
+        <div class="slide">
+          <img src="./images/workspace2.jpg" alt="워크스페이스 2"/>
+          <div class="slide-cap">CODE & DESIGN LAB</div>
+        </div>
+      </div>
+    </div>
+    <div class="slider-ctrl">
+      <div class="slider-dots" id="dots"></div>
+      <div class="slider-btns">
+        <button class="s-btn" id="prev">‹</button>
+        <button class="s-btn" id="next">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 원하는 리퍼럴 -->
+  <section class="section">
+    <div class="referral-block">
+      <div class="referral-title">이런 분과 연결되고 싶습니다</div>
+      <div class="referral-sub">BNI 파이오니어 챕터 · 레퍼럴 환영</div>
+      <div class="ref-tags">
+        <div class="ref-tag">나만의 철학을 담은 독창적인 웹페이지가 필요한 분</div>
+        <div class="ref-tag">아이디어를 앱·웹으로 빠르게 시각화하고 싶은 초기 창업가</div>
+        <div class="ref-tag">시그니처 메뉴 개발과 실전 컨설팅이 필요한 요식업 대표님</div>
+        <div class="ref-tag">IT · F&B · 웰니스 융합으로 시너지를 낼 협업 파트너</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 활동 이력 -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-dot"></div>
+      <div class="section-title">활동 이력</div>
+    </div>
+    <div class="history-list">
+      <div class="history-item">
+        <div class="history-year">BNI</div>
+        <div class="history-content">
+          <div class="history-title">파이오니어 챕터 4년차</div>
+          <div class="history-desc">의장 1년 · 멘토링코디 · 비지터호스트리더 · 3스타 그린클럽<br>자이언츠 챕터 앰버서더</div>
+        </div>
+      </div>
+      <div class="history-item">
+        <div class="history-year">Medical</div>
+        <div class="history-content">
+          <div class="history-title">물리치료사 15년</div>
+          <div class="history-desc">메디컬 라이프케어 데이터 분석 전문가</div>
+        </div>
+      </div>
+      <div class="history-item">
+        <div class="history-year">F&B</div>
+        <div class="history-content">
+          <div class="history-title">요식업 10년</div>
+          <div class="history-desc">실전 F&B 브랜드 경영 및 사운드 브랜딩</div>
+        </div>
+      </div>
+      <div class="history-item">
+        <div class="history-year">현재</div>
+        <div class="history-content">
+          <div class="history-title">T.M 대표</div>
+          <div class="history-desc">앱·웹 개발사 대표 · 동명대학교 창업학과 재학</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 링크 -->
+  <section class="section">
+    <div class="section-head">
+      <div class="section-dot"></div>
+      <div class="section-title">연결하기</div>
+    </div>
+    <div class="link-list">
+      <a class="link-item" href="tel:010-5334-2544">
+        <div class="link-left">
+          <div class="link-icon">📞</div>
+          <div>
+            <div class="link-label">전화 연결</div>
+            <div class="link-sub">010-5334-2544</div>
+          </div>
+        </div>
+        <div class="link-arrow">›</div>
+      </a>
+      <a class="link-item" href="https://jinjjabg-hub.github.io/MANDU/" target="_blank">
+        <div class="link-left">
+          <div class="link-icon">💬</div>
+          <div>
+            <div class="link-label">MANDU 메신저</div>
+            <div class="link-sub">실시간 번역 메신저</div>
+          </div>
+        </div>
+        <div class="link-arrow">›</div>
+      </a>
+      <a class="link-item" href="https://www.instagram.com/tomahawk_all/" target="_blank">
+        <div class="link-left">
+          <div class="link-icon">📷</div>
+          <div>
+            <div class="link-label">인스타그램</div>
+            <div class="link-sub">@tomahawk_all</div>
+          </div>
+        </div>
+        <div class="link-arrow">›</div>
+      </a>
+      <a class="link-item" href="https://www.threads.com/@pioneer_bni" target="_blank">
+        <div class="link-left">
+          <div class="link-icon">🧵</div>
+          <div>
+            <div class="link-label">쓰레드</div>
+            <div class="link-sub">@pioneer_bni</div>
+          </div>
+        </div>
+        <div class="link-arrow">›</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <div class="footer">
+    <div class="footer-tm">T · M</div>
+    <div class="footer-title">TOMAHAWK MEDIA</div>
+    <div class="footer-copy">당신만의 이야기를 디지털로 구현합니다.<br>© 2026 T.M. All rights reserved.</div>
+  </div>
+
+</div>
+
+<!-- 바텀 네비 -->
+<nav class="bottom-nav">
+  <a class="nav-item active" href="#">
+    <div class="nav-icon">🏠</div>
+    <div class="nav-label">홈</div>
+  </a>
+  <a class="nav-item" href="#" onclick="document.querySelector('.section:nth-of-type(3)').scrollIntoView({behavior:'smooth'});return false;">
+    <div class="nav-icon">💡</div>
+    <div class="nav-label">WHY</div>
+  </a>
+  <a class="nav-item" href="#" onclick="document.querySelector('.referral-block').scrollIntoView({behavior:'smooth'});return false;">
+    <div class="nav-icon">🤝</div>
+    <div class="nav-label">리퍼럴</div>
+  </a>
+  <a class="nav-item" href="tel:010-5334-2544">
+    <div class="nav-icon">📞</div>
+    <div class="nav-label">연결</div>
+  </a>
+</nav>
+
+<script>
+const themes = [
+  {
+    name: '차콜 골드', swatch: '#1a2744',
+    p:'#1a2744', p2:'#c9a84c', pl:'#e8dfc4', pd:'#0d1628',
+    bg:'#f7f5f0', bg2:'#eeeade', card:'#ffffff',
+    text:'#1a1a1a', text2:'#5a5a5a', border:'rgba(26,39,68,0.12)',
+    tagbg:'rgba(201,168,76,0.15)', tagtext:'#8a6820'
+  },
+  {
+    name: '네이비 실버', swatch: '#0f2d5e',
+    p:'#0f2d5e', p2:'#8a9bb5', pl:'#d0dae8', pd:'#071a3a',
+    bg:'#f4f6f9', bg2:'#e8ecf3', card:'#ffffff',
+    text:'#0f1e33', text2:'#546580', border:'rgba(15,45,94,0.12)',
+    tagbg:'rgba(138,155,181,0.15)', tagtext:'#3a5070'
+  },
+  {
+    name: '딥그린 골드', swatch: '#1a3d2b',
+    p:'#1a3d2b', p2:'#b8960c', pl:'#dfd9b0', pd:'#0d2018',
+    bg:'#f5f7f3', bg2:'#e6ede2', card:'#ffffff',
+    text:'#1a2a1e', text2:'#4a6052', border:'rgba(26,61,43,0.12)',
+    tagbg:'rgba(184,150,12,0.15)', tagtext:'#7a6008'
+  },
+  {
+    name: '버건디 크림', swatch: '#6b1a2a',
+    p:'#6b1a2a', p2:'#c4956a', pl:'#f0dfd0', pd:'#3d0e18',
+    bg:'#faf7f3', bg2:'#f0e8de', card:'#ffffff',
+    text:'#2a1a18', text2:'#6a4a40', border:'rgba(107,26,42,0.12)',
+    tagbg:'rgba(196,149,106,0.15)', tagtext:'#8a5030'
+  },
+  {
+    name: '블랙 레드', swatch: '#111111',
+    p:'#111111', p2:'#e03030', pl:'#f5c0c0', pd:'#000000',
+    bg:'#f8f8f8', bg2:'#efefef', card:'#ffffff',
+    text:'#111111', text2:'#555555', border:'rgba(0,0,0,0.12)',
+    tagbg:'rgba(224,48,48,0.1)', tagtext:'#a01010'
+  }
+];
+
+let curTheme = 0;
+const r = document.documentElement;
+
+function applyTheme(t) {
+  r.style.setProperty('--p', t.p);
+  r.style.setProperty('--p2', t.p2);
+  r.style.setProperty('--p-light', t.pl);
+  r.style.setProperty('--p-dark', t.pd);
+  r.style.setProperty('--bg', t.bg);
+  r.style.setProperty('--bg2', t.bg2);
+  r.style.setProperty('--card', t.card);
+  r.style.setProperty('--text', t.text);
+  r.style.setProperty('--text2', t.text2);
+  r.style.setProperty('--border', t.border);
+  r.style.setProperty('--tag-bg', t.tagbg);
+  r.style.setProperty('--tag-text', t.tagtext);
+  document.getElementById('theme-name').textContent = t.name;
+  document.querySelectorAll('.swatch').forEach((s,i) => s.classList.toggle('active', i===curTheme));
+}
+
+const sw = document.getElementById('swatches');
+themes.forEach((t, i) => {
+  const s = document.createElement('div');
+  s.className = 'swatch' + (i===0?' active':'');
+  s.style.background = t.swatch;
+  s.title = t.name;
+  s.onclick = () => { curTheme = i; applyTheme(t); };
+  sw.appendChild(s);
+});
+
+// 슬라이더
+let slideIdx = 0;
+const numSlides = 2;
+const slidesEl = document.getElementById('slides');
+const dotsEl = document.getElementById('dots');
+
+for(let i=0;i<numSlides;i++){
+  const d = document.createElement('div');
+  d.className = 'dot'+(i===0?' active':'');
+  d.onclick = () => goTo(i);
+  dotsEl.appendChild(d);
+}
+function goTo(n){
+  slideIdx = Math.max(0, Math.min(numSlides-1, n));
+  slidesEl.style.transform = `translateX(-${slideIdx*100}%)`;
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===slideIdx));
+  document.getElementById('prev').disabled = slideIdx===0;
+  document.getElementById('next').disabled = slideIdx===numSlides-1;
+}
+document.getElementById('prev').onclick = ()=>goTo(slideIdx-1);
+document.getElementById('next').onclick = ()=>goTo(slideIdx+1);
+document.getElementById('prev').disabled = true;
+
+applyTheme(themes[0]);
+</script>
+</body>
+</html>
